@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "uni-request": "^1.0.2",
+    "vuex": "^3.4.0"
+  }
+}
