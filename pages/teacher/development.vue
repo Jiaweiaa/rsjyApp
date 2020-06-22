@@ -540,7 +540,7 @@ export default {
 				},
 				yAxis: {
 					format: val => {
-						return val.toFixed(1);
+						return val.toFixed(2);
 					},
 					show: false
 					//disabled:true
@@ -571,8 +571,7 @@ export default {
 				series: chartData.series,
 				xAxis: {
 					disableGrid: true,
-					rotateLabel: true,
-					labelCount:6
+					rotateLabel: true
 				},
 				yAxis: {
 					format: val => {
@@ -646,7 +645,7 @@ export default {
 				},
 				yAxis: {
 					format: val => {
-						return val.toFixed(1);
+						return val.toFixed(0);
 					},
 					show: false
 					//disabled:true
@@ -884,7 +883,7 @@ export default {
 	}
 	.DrawerClose {
 		overflow-x: scroll;
-		width: 375px;
+		width: 367px;
 		.testTableTwo {
 			border-left: 1px solid #ddd;
 			border-bottom: 1px solid #ddd;
