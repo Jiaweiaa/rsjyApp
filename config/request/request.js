@@ -35,7 +35,7 @@ uniRequest.interceptors.response.use((response) => {
 		return Promise.reject(response.data.msg)
 	}
 	
-	if (response.data.code === 'MA1101' || response.data.status == 'FAIL') {
+	if (response.data.code === 'MA1101' && response.data.status == 'FAIL') {
 		uni.showToast({
 			title: '登陆过期',
 			icon: 'none',

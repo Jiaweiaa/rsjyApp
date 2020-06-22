@@ -10,6 +10,7 @@ const store = new Vuex.Store({
 	mutations: {
 		login(state, user) {
 			state.user = user
+			console.log(state.user)
 			// 缓存用户信息
 			uni.setStorageSync('user', JSON.stringify(user))
 		},

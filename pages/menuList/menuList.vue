@@ -1,6 +1,8 @@
 <template>
 	<view class="listMenu">
 		<view class="iphoneBlock">
+			<view class="loginOut" v-show="user" @click="loginOut">退出</view>
+			
 			<view class="title">
 				<view class="fontBold">您好，</view>
 				<view>请选择您要查询的平台。</view>
@@ -25,6 +27,7 @@
 		data() {
 			return {
 				activeIndex: 0,
+				user: this.$store.getters.user,
 				listData: [
 					{
 						imgSrc: '/static/images/diagnosis.png',
@@ -71,26 +74,51 @@
 			// 目录点击
 			async menuClick(item, index) {
 				this.activeIndex = index;
-				let params  = {
-					userId: this.$store.getters.user.userId,
+				let user = JSON.parse(uni.getStorageSync('user'));
+				let params = {
+					userId: user.userId ? user.userId : '',
 					moduleCode: item.moduleCode,
-					userType: this.$store.getters.user.userType
+					type: user.userType === '' || user.userType === 1 ? '' : 1
 				}
-			
 				const url = this.address.main + this.api.login.findUserCanViewModule;
 				let	result = await this.request.post(url, params);
-			 if (result.status === 'SUCCESS') {
+				if (result.status === 'SUCCESS') {
 					uni.navigateTo({
 						url: item.url
 					})
+				}else {
+					uni.showToast({
+						title: '没有权限进入该模块!',
+						icon: 'none',
+						duration: 1000
+					})
 				}
-			} 
+			},
+			
+			// 退出登录
+			loginOut() {
+				// 存储用户数据
+				this.$store.dispatch('logout').then(res => {
+					uni.showToast({
+						title: '退出成功',
+						icon: 'none',
+						duration: 1000
+					})
+					
+					setTimeout(() => {
+						uni.redirectTo({
+							url: '/pages/login/login'
+						});
+					}, 1000)
+				})
+			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
 	.listMenu {
+		position: relative;
 		.title {
 			margin-top: 250upx;
 			margin-left: 80upx;
@@ -101,7 +129,12 @@
 				font-weight: bold;
 			}
 		}
-		
+		.loginOut {
+			position: absolute;
+			right: 80upx;
+			top: 180upx;
+			font-size: 32upx;
+		}
 		.Menu {
 			width: 630upx;
 			display: block; 

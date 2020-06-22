@@ -64,7 +64,8 @@
 				if(this.form.userNo && this.form.password) {
 					const url = this.address.main + this.api.login.login;
 					let	result = await this.request.post(url, this.form);
-					uni.setStorageSync('user', result.data)
+					uni.clearStorage();
+					uni.setStorage('user', result.data)			
 					// 存储用户数据
 					this.$store.dispatch('login', result.data).then(res => {
 						uni.showToast({
