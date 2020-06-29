@@ -51,7 +51,7 @@
 						imgSrc: '/static/images/class.png',
 						title: '课程层面诊断平台',
 						moduleCode: 'class',
-						url: ''
+						url: '/pages/class/class'
 					},
 					{
 						imgSrc: '/static/images/system.png',

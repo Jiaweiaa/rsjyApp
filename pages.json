@@ -18,6 +18,14 @@
 			"style": {}
 		},
 		{
+			"path": "pages/class/class",
+			"style": {}
+		},
+		{
+			"path": "pages/class/diagnosisDetail",
+			"style": {}
+		},
+		{
 			"path": "pages/login/login",
 			"style": {}
 		},

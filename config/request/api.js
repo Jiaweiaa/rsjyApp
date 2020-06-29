@@ -70,5 +70,12 @@ export default {
 	teacher: {
 		getSelfTest: '/api/selfTest/getSelfTest',
 		getDevelopmentReport: '/api/developmentReport/getDevelopmentReport'
+	},
+	
+	/*
+		findByPage  获取课程信息
+	*/
+	classModel: {
+		findByPage: '/api/developmentConfig/findByPage'
 	}
 }

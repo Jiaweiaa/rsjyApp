@@ -6,3 +6,4 @@ export const main = `${requestUrl}/diagnose-main-api`;
 export const major = `${requestUrl}/diagnose-major-api`;
 export const student = `${requestUrl}/diagnose-student-api`;
 export const teacher = `${requestUrl}/diagnose-teacher-api`;
+export const classModel = `${requestUrl}/diagnose-class-api`;
