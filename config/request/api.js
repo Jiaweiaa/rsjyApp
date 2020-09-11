@@ -74,8 +74,10 @@ export default {
 	
 	/*
 		findByPage  获取课程信息
+		getDiagnosticReport 课程诊断报告
 	*/
 	classModel: {
-		findByPage: '/api/developmentConfig/findByPage'
+		findByPage: '/api/developmentConfig/findByPage',
+		getDiagnosticReport: '/api/courseDiagnosticReport/getDiagnosticReport'
 	}
 }

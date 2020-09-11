@@ -82,8 +82,9 @@
 		methods: {
 			// 跳转
 			toDetail(val) {
+				console.log(val)
 				uni.navigateTo({
-					url: `/pages/class/diagnosisDetail?data=${JSON.stringify(val)}`
+					url: `/pages/class/diagnosisDetail?id=${val.kcjsjbqkId}&name=${val.className}&code=${val.classCode}`
 				})
 			},
 			

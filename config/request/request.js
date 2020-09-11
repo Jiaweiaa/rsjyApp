@@ -11,7 +11,6 @@ import uniRequest from '@/node_modules/uni-request/index.js';
 uniRequest.interceptors.request.use(config => {
 	// 赋值token
 	config.headers.token = uni.getStorageSync('user') ?  JSON.parse(uni.getStorageSync('user')).userToken : new Date().getTime()
-
 	// 防止缓存，GET请求默认带_t参数
 	if (config.method === 'get') {
 		config.params = {
@@ -48,7 +47,6 @@ uniRequest.interceptors.response.use((response) => {
 	}
 	return Promise.resolve(response.data);
 }, (err) => {
-	console.log(err)
 	if (err && err.response) {
 		switch (err.response.status) {
 		  case 301: err.message = '请求的数据具有新的位置且更改是永久的'; break

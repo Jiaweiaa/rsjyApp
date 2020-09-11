@@ -24,6 +24,7 @@
 						<view class="itemTitle" :class="{'index3Title': index == 3 }">
 							{{item.title}}
 						</view>
+						
 						<view class="childBlock" :key="childIndex" v-for="(childItem, childIndex) in item.data">
 							<view class="childTitle" v-show="index == 0 || index == 1">
 								<view class="borderLeft"></view>
@@ -162,6 +163,8 @@
 		},
 		data() {
 			return {
+				nowId: '',
+				
 				loading: false,
 				
 				pageData: {
@@ -170,360 +173,6 @@
 						code: '12080301'
 					},
 					list: [
-						{
-							title: '一、基本情况',
-							data: [
-								{
-									title: '（一）基本信息',
-									infoData: [
-										{
-											label: '课程名称:',
-											value: '世界建筑史'
-										},
-										{
-											label: '类型:',
-											value: 'A'
-										},
-										{
-											label: '计划学时:',
-											value: '12'
-										},
-										{
-											label: '实际学时:',
-											value: '12'
-										},
-										{
-											label: '理论学时:',
-											value: '8'
-										},
-										{
-											label: '实践学时:',
-											value: '4'
-										},
-										{
-											label: '授课教师:',
-											value: '张三'
-										},
-										{
-											label: '课程负责人:',
-											value: '李四'
-										},
-										{
-											label: '课程代码:',
-											value: '12080301'
-										},
-										{
-											label: '开设学期:',
-											value: '2'
-										}
-									]
-								}, {
-									title: '（二）性质与目标',
-									infoData: [
-										[
-											{
-												label: '1、公告基础课:',
-												value: '世界建筑史'
-											},
-											{
-												label: '作用:',
-												value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-											},
-											{
-												label: '精品在线开放课:',
-												value: '是'
-											},
-											{
-												label: '等级:',
-												value: '2级'
-											},
-											{
-												label: '作用:',
-												value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。'
-											},
-											{
-												label: '毕业设计:',
-												value: '2xxxxxxxxxx'
-											},
-											{
-												label: '作用:',
-												value: '每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。字数不超过500字。'
-											},
-											{
-												label: '顶岗实习:',
-												value: '2xxxxxxxxxx'
-											},
-											{
-												label: '作用:',
-												value: '自我诊改务必写实，无需等级性结论。'
-											},
-										],
-										[
-											{
-												label: '2、课程地位:',
-												value: 'xxxxxxxxxxx'
-											}
-										],
-										[
-											{
-												label: '3、课程目标:',
-												value: 'xxxxxxxxxx'
-											}
-										]
-									]
-								}, {
-									title: '（三）教学条件',
-									infoData: [
-										{
-											label: '课程资源数量:',
-											value: '---'
-										},
-										{
-											label: '教材建设:',
-											value: '---'
-										},
-										{
-											label: '专业配套资源:',
-											value: '--'
-										}
-									]
-								}, {
-									title: '（四）教学团队',
-									infoData: [
-										{
-											label: '专业带头人:',
-											value: '---'
-										},
-										{
-											label: '职称:',
-											value: '---'
-										},
-										{
-											label: '年龄:',
-											value: '---'
-										},
-										{
-											label: '学历:',
-											value: '---'
-										},
-										{
-											label: '团队结构:',
-											value: '---'
-										},
-										{
-											label: '教学能力:',
-											value: '---'
-										}
-									]
-								}, {
-									title: '（五）教学设计',
-									infoData: [
-										{
-											label: '1、课程模式',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										},
-										{
-											label: '2、教学内容与设计',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										},
-										{
-											label: '3、教学资源【自行录制、引用资源、购买（版权）】',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										}
-									]
-								}, {
-									title: '（六）教学实施',
-									infoData: [
-										{
-											label: '1、教学模式',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										},
-										{
-											label: '2、方法与手段',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										},
-										{
-											label: '3、课外活动',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										},
-										{
-											label: '4、教学成果',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										},
-										{
-											label: '5、教学评价',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										}
-									]
-								},
-							]
-						},
-						{
-							title: '二、建设水平',
-							data: [
-								{
-									title: '（一）与校内标准比较',
-									infoData: [
-										{
-											label: '1、建设水平:',
-											value: 'xxxxxxxx'
-										},
-										{
-											label: '2、校企合作共同开发:',
-											value: '是',
-											tableData: {
-												header: ['企业名称', '对接人员', '企业投入'],
-												body: [
-													{
-														enterpriseName: '123公司',
-														dockingPersonnel: '张三',
-														enterpriseInvestment: '100w'
-													},
-													{
-														enterpriseName: '123公司',
-														dockingPersonnel: '张三',
-														enterpriseInvestment: '100w'
-													}
-												]
-											}
-										},
-										{
-											label: '3、教学方法与手段改革:',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										},
-										{
-											label: '4、教学考核方式改革:',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问题，原因分析。技术不超过500字。自我诊改务必写实，无需等级性结论。'
-										},
-										{
-											label: '5、教学成果:',
-											progress: [
-												{
-													name: '知识目标达成度',
-													value: '50%'
-												},
-												{
-													name: '能力目标达成度',
-													value: '10%'
-												},
-												{
-													name: '素质目标达成度',
-													value: '70%'
-												},
-												{
-													name: '学生课程达标率 ',
-													value: '86.67%'
-												}
-											]
-										}
-									]
-								},
-								{
-									title: '（二）与标杆课程比较',
-									infoData: [
-										{
-											label: '课程体系:',
-											value: 'xxxxxxxxx'
-										},
-										{
-											label: '教学资源:',
-											value: ''
-										},
-										{
-											label: '课外实践:',
-											value: ''
-										},
-										{
-											label: '教学成果:',
-											value: ''
-										}
-									]
-								},
-								{
-									title: '（三）课程特色',
-									infoData: [
-										{
-											label: '1、课程特色:',
-											value: '诊断与改进工作概述，字数500字以内，报告内容必须真实准确。每项诊断工作的“自我诊断意见”需阐明目标达成程度，主要成绩，存在问'
-										}
-									]
-								}
-							]
-						},
-						{
-							title: '三、存在问题',
-							data: [
-								{
-									title: '',
-									infoData: [
-										{
-											label: '1、课程定位是否准确',
-											value: '是'
-										},
-										{
-											label: '2、教学模式是否科学',
-											value: 'xxxxxxxxxxx'
-										},
-										{
-											label: '3、教学方法与手段是否先进',
-											value: 'xxxxxxxx'
-										},
-										{
-											label: '4、教学团队构成是否合理',
-											value: 'xxxxxxxx'
-										},
-										{
-											label: '5、实践教学条件是否满足教学要求（按学校标准）',
-											value: 'xxxxxxxx'
-										},
-										{
-											label: '6、教学资源建设是否丰富（资源种类+数量+覆盖率的分析）',
-											value: 'xxxxxxxx'
-										},
-										{
-											label: '7、课程考核评价是否合理（过程性考核+终结性考核的成绩呈正态分布）',
-											value: 'xxxxxxxx'
-										},
-										{
-											label: '8、课程达标率（平时+终结分别在90%以上）',
-											value: 'xxxxxxxx'
-										},
-										{
-											label: '9、自我剖析其他方面',
-											value: 'xxxxxxxx'
-										}
-									]
-								}
-							]
-						},
-						{
-							title: '四、对策及诊改措施',
-							data: [
-								{
-									title: '',
-									infoData: [
-										{
-											label: '1、对策及诊改措施',
-											value: '存在问题与原因分析应各占一半左右篇幅。每项诊断工作的“改进措施”需突出针对性、注重可行性，字数不超过200字。'
-										}
-									]
-								}
-							]
-						},
-						{
-							title: '五、诊改成效分析',
-							data: [
-								{
-									title: '',
-									infoData: [
-										{
-											label: '1、诊改成效分析',
-											value: '存在问题与原因分析应各占一半左右篇幅。每项诊断工作的“改进措施”需突出针对性、注重可行性，字数不超过200字。'
-										}
-									]
-								}
-							]
-						}
 					]
 				},
 				
@@ -555,11 +204,43 @@
 			this.$refs.barTabNav._selectedTab(e.scrollTop);
 		},
 		onLoad(val) {
+			this.nowId = val.id;
+			this.pageData.title.name = val.name;
+			this.pageData.title.code = val.code;
+			this.getDiagnosticReport();
 			setTimeout(() => {
 				this.loading = true
 			}, 500)
 		},
 		methods: {
+			// 进度条
+			LoadProgress(e) {
+				if(e) {
+					this.loadProgress = 0;
+					this.isLoading = false;
+				}else {
+					let interval = setInterval(() => {
+						this.loadProgress = this.loadProgress + 5;
+					}, 100)
+					if(this.loadProgress > 100) {
+						clearInterval(interval);
+						this.loadProgress = 0;
+					} 
+				}
+			},
+			
+			// 获取详情
+			async getDiagnosticReport() {
+				let params = {
+					id: this.nowId
+				}
+				this.LoadProgress();
+				const url = this.address.classModel + this.api.classModel.getDiagnosticReport;
+				let	result = await this.request.post(url, params);
+				this.pageData.list = result.data;
+				this.LoadProgress(true);
+			},
+			
 			menuChange() {
 				this.menuOpen = !this.menuOpen;
 			}
